@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-     <div class="card">
-      <img class="card-img" src=${novel.img} :alt="novel.name">
-      <div class="card-body" v-for="novel in novels" :key="novel.name">
-        <h4 class="card-title">{{ novel.name }}</h4>
-        <div class="card-text">${{ novel.price }}</div>
-        <div class="row justify-content-end">
-          <button class="btn btn-primary">Add to cart</button>
-        </div>
-      </div>
+    <h1>Hey</h1>
+    <div class="display">
+      <div class="card" v-for="novel in novels" :key="novel.name">
+      <img class="card-img" :src="novel.img" :alt="novel.name">
+      <h2 class="card-body">{{ novel.name }}</h2>
+      <h3 class="card-price">${{ novel.price }}</h3>
+      <button class="btn-cart">Add To Cart</button>
+    </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -92,8 +92,23 @@ export default {
   color: #2c3e50;
 }
 
+.display{
+  display: flex;
+  flex-direction: column;
+  padding: 0rem;
+  margin: 0rem;
+}
+
 .card{
   display: flex;
+  flex-direction: column;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+.card-img{
+  width: 30vh;
+  height: 40vh;
 }
 
 </style>
