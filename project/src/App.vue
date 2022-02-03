@@ -1,22 +1,26 @@
 <template>
   <div id="app">
     <h1 class="header">Novels for Sale</h1>
-    <div class="display">
-      <div class="card" v-for="novel in novels" :key="novel.name">
-      <img class="card-img" :src="novel.img" :alt="novel.name">
-      <h2 class="card-body">{{ novel.name }}</h2>
-      <h3 class="card-price">${{ novel.price }}</h3>
-      <button class="btn-cart">Add To Cart</button>
-    </div>
+
+   <div class="display">
+      <Item
+        v-for="novel in novels"
+        :key="novel.id"
+        :id="novel.id"
+        :name="novel.name"
+        :img="novel.img"
+        :price="novel.price" />
     </div>
   </div>
+
   
 </template>
 
 <script>
+import Item from "./components/item.vue"
 export default {
   name: 'app',
-  components: {},
+  components: {Item},
   data(){
     return { 
       novels: [
@@ -70,7 +74,7 @@ export default {
       },
       {
         id: 9,
-        name: "The Lgendary Mechanic",
+        name: "The Legendary Mechanic",
         price: 10, 
         img: "https://th.bing.com/th/id/OIP.A10FqatQ448m2M-3HBoFsQHaKd?w=204&h=289&c=7&r=0&o=5&pid=1.7",
       },
