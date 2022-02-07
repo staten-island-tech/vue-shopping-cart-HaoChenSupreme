@@ -78,6 +78,12 @@ export default {
         price: 10, 
         img: "https://th.bing.com/th/id/OIP.A10FqatQ448m2M-3HBoFsQHaKd?w=204&h=289&c=7&r=0&o=5&pid=1.7",
       },
+      {
+        id: 10,
+        name: " Manual",
+        price: 11, 
+        img: "https://th.bing.com/th/id/OIP.uf0N5YQvwf1QkMChI1JZ-QHaL2?w=197&h=316&c=7&r=0&o=5&pid=1.7",
+      },
     ],
   };
 },
