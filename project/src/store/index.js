@@ -74,9 +74,13 @@ export default new Vuex.Store({
     inCart: (state) => state.inCart,
   },
   mutations: {
-    // TODO: Add mutations
+    ADD_TO_CART(state, id) {
+      state.inCart.push(id);
+    },
   },
   actions: {
-    // TODO: Add actions
+    addToCart(context, id) {
+      context.commit("ADD_TO_CART", id);
+    },
   },
 });

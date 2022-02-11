@@ -5,7 +5,7 @@
       <img class="card-img" :src="img">
       <h2 class="card-body">{{ name }}</h2>
       <h3 class="card-price">${{ price }}</h3>
-      <button class="btn-cart">Add To Cart</button>
+      <button class="btn btn-primary" @click="addToCart(id)">Add to cart</button>
     </div>
     </div>
   </div>
@@ -15,5 +15,10 @@
 export default {
   name: 'Item',
   props: ['id', 'name', 'img', 'price'],
+  methods: {
+    addToCart(id) {
+      this.$store.dispatch('addToCart', id);
+    },
+  },
 };
 </script>

@@ -11,13 +11,17 @@
         :img="novel.img"
         :price="novel.price" />
     </div>
+    <div class="col-md-3">
+        <ShoppingCart />
+    </div>
   </div>
 
   
 </template>
 
 <script>
-import Item from "./components/item.vue"
+import Item from "./components/item.vue";
+import ShoppingCart from "./ShoppingCart.vue";
 export default {
   name: 'app',
   components: {Item},
