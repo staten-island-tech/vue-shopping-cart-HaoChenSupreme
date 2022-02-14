@@ -12,7 +12,7 @@
         :price="novel.price" />
     </div>
     <div class="col-md-3">
-        <ShoppingCart />
+        **<ShoppingCart />**
     </div>
   </div>
 
@@ -24,10 +24,11 @@ import Item from "./components/item.vue";
 import ShoppingCart from "./ShoppingCart.vue";
 export default {
   name: 'app',
-  components: {Item},
+  components: {Item, ShoppingCart},
   computed: {
     novels() { return this.$store.getters.novels; },
     inCart() { return this.$store.getters.inCart; },
+     forSale() { return this.$store.getters.forSale; },
   },
   };
 
