@@ -1,7 +1,10 @@
 <template>
-  <button class="btn btn-primary">Cart (**{{ numInCart }}**)</button>
+<div>
+ <button class="btn btn-primary">Cart (**{{ numInCart }}**)</button>
+</div>
+ 
+  
 </template>
-
 <script>
 export default {
   name: 'shoppingCart',
@@ -17,4 +20,5 @@ export default {
     },
   },
 };
+
 </script>

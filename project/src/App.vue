@@ -28,7 +28,7 @@ export default {
   computed: {
     novels() { return this.$store.getters.novels; },
     inCart() { return this.$store.getters.inCart; },
-     forSale() { return this.$store.getters.forSale; },
+    forSale() { return this.$store.getters.forSale; },
   },
   };
 
