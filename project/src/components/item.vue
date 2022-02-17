@@ -17,8 +17,7 @@ export default {
   props: ['id', 'name', 'img', 'price'],
   methods: {
     addToCart(id) {
-      this.$store.commit('addToCart', item);
-      item.name, item.price, itme.img;
+      this.$store.commit('addToCart', id);
     },
   },
 };

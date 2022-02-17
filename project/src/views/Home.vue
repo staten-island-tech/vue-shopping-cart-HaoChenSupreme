@@ -20,7 +20,7 @@
 import Item from "../components/item.vue";
 export default {
   name: 'home',
-  components: {Item, Cart},
+  components: {Item},
   computed: {
     novels() { return this.$store.getters.novels; },
     inCart() { return this.$store.getters.inCart; },
