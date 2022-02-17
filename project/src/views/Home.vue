@@ -1,108 +1,105 @@
 <template>
-  <div id="home">
-    <h1 class="header">Novels for Sale</h1>
-
-   <div class="display">
-      <Item
-        v-for="novel in novels"
-        :key="novel.id"
-        :id="novel.id"
-        :name="novel.name"
-        :img="novel.img"
-        :price="novel.price" />
-    </div>
+<div>
+  <h1>Novels For Sale</h1>
+  <div class="home">
+    <Card
+      v-for="(novel, index) in novels"
+      :key="index"
+      :name="novel.name"
+      :img="novel.img"
+      :price="novel.price"
+      class="card"
+      ><Button @button-click="addCard(novel)">ADD TO CART</Button></Card
+    >
   </div>
-
-  
+</div>
 </template>
 
 <script>
-import Item from "../components/item.vue";
+import Card from "../components/card.vue";
+import Button from "../components/button.vue";
 export default {
-  name: 'home',
-  components: {Item},
-  computed: {
-    novels() { return this.$store.getters.novels; },
-    inCart() { return this.$store.getters.inCart; },
-    forSale() { return this.$store.getters.forSale; },
+  name: "Home",
+  components: {
+    Card,
+    Button,
   },
-  };
-
-
-
+  methods: {
+    addCard(novel) {
+      this.$store.commit("add", novel);
+      novel.name, novel.img, novel.price;
+    },
+  },
+  computed: {},
+  data() {
+    return {
+      novels: [
+      {
+        name: "Ze Tian Ji",
+        price: 15,
+        img: "https://bookcover.yuewen.com/qdbimg/349573/3347595/180",
+      },
+      {
+        name: "Reverend Insanity",
+        price: 10,
+        img: "https://th.bing.com/th/id/OIP.9su0swVbRbVFzohIqf7KdQAAAA?w=204&h=274&c=7&r=0&o=5&pid=1.7",
+      },
+      {
+        name: "A Will Eternal",
+        price: 10,
+        img: "https://th.bing.com/th/id/OIP.O-TD0lk2oZPlq6KcKB45gwAAAA?w=138&h=184&c=7&r=0&o=5&pid=1.7",
+      },
+      {
+        name: "Martial Peak",
+        price: 10,
+        img: "https://th.bing.com/th/id/OIP.mUvjkiv2jZLeJKPjKKv92QAAAA?w=189&h=273&c=7&r=0&o=5&pid=1.7",
+      },
+      {
+        name: "Terror Infinity",
+        price: 10,
+        img: "https://th.bing.com/th/id/OIP.nfPJi1XQaJz6QiQlO8IZTQAAAA?w=180&h=247&c=7&r=0&o=5&pid=1.7",
+      },
+      {
+        name: "The Strongest System",
+        price: 10,
+        img: "https://www.bing.com/th?id=OIP.eQGm0Oiwv2ytWD6q8MmcPAAAAA&w=120&h=160&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+      },
+      {
+        name: "Hail The King",
+        price: 8,
+        img: "https://th.bing.com/th/id/OIP.V07Fr76JsEOMiLpK4e7zXgAAAA?w=148&h=197&c=7&r=0&o=5&pid=1.7",
+      },
+      {
+        name: "A Valiant Life",
+        price: 8,
+        img: "https://th.bing.com/th/id/OIP.2u4fumvPJcIOOIec6Dmd3QAAAA?pid=ImgDet&rs=1",
+      },
+      {
+        name: "The Legendary Mechanic",
+        price: 10,
+        img: "https://th.bing.com/th/id/OIP.A10FqatQ448m2M-3HBoFsQHaKd?w=204&h=289&c=7&r=0&o=5&pid=1.7",
+      },
+    ],
+    };
+  },
+};
 </script>
 
-<style>
-#home, html{
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  padding: 0rem;
-  margin: 0rem;
-  box-sizing: border-box;
-  font-size: 62.5%;
-  color: #2c3e50;
-  background-color: rgb(250, 223, 223);
-}
+<style scoped>
 
-.display{
- display: flex;
- flex-direction: row;
- justify-content: space-around;
- flex-wrap: wrap;
- margin-left: 5rem;
- margin-right: 5rem;
+.home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 2.25rem;
+  background-color: antiquewhite;
 }
-:root{
-  --h1: 9.594rem;
-  --h2: 3.063rem;
-  --h3: 2.375rem;
-  --h4: 1.25rem;
+.card {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-block-color: rgb(226, 191, 191);
 }
-
-.header{
-  margin: 1rem;
-}
-
-.card-price, .card-body{
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-size: var(--h1);
-}
-
-h2 {
-  font-size: var(--h2);
-}
-
-h3 {
-  font-size: var(--h3);
-}
-
-h4 {
-  font-size: var(--h4);
-}
-
-.card{
-  width: 35vh;
-  height: 50vh;
-  border: 0.5rem solid;
-  border-color: rgb(243, 122, 122);
-  background-color: rgb(165, 216, 250);
-  border-radius: 1rem;
-  padding-top: 3rem;
-  margin: 1rem;
-}
-
-.card-img{
-  width: 26vh;
-  height: 39vh;
-  border: 0.5rem solid;
-  border-color: rgb(204, 165, 248);
-  border-radius: 1rem;
-}
-
 </style>
