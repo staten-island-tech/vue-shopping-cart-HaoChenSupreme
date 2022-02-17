@@ -1,5 +1,5 @@
 <template>
- <div id="app">
+ <div id="home">
     <div class="display">
       <div class="card">
       <img class="card-img" :src="img">
@@ -17,7 +17,8 @@ export default {
   props: ['id', 'name', 'img', 'price'],
   methods: {
     addToCart(id) {
-      this.$store.dispatch('addToCart', id);
+      this.$store.commit('addToCart', item);
+      item.name, item.price, itme.img;
     },
   },
 };
